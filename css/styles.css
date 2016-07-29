@@ -1,0 +1,34 @@
+button {
+	font-size: 1em;
+	position: absolute;
+	z-index: 100;
+	left: 10px;
+}
+
+#buttonToSkyA {
+	bottom: 50px;
+}
+
+#buttonToSkyB {
+	bottom: 10px;
+}
+
+#buttonToSkyC {
+	bottom: 50px;
+	left: 300px;
+}
+
+#buttonToSkyD {
+	bottom: 10px;
+	left: 300px;
+}
+
+#buttonToGroundAndSky {
+	bottom: 50px;
+	left: 600px;
+}
+
+#buttonToToggleModel {
+	bottom: 10px;
+	left: 600px;
+}
