@@ -15,20 +15,20 @@ button {
 
 #buttonToSkyC {
 	bottom: 50px;
-	left: 300px;
+	left: 100px;
 }
 
 #buttonToSkyD {
 	bottom: 10px;
-	left: 300px;
+	left: 100px;
 }
 
 #buttonToGroundAndSky {
 	bottom: 50px;
-	left: 600px;
+	left: 200px;
 }
 
 #buttonToToggleModel {
 	bottom: 10px;
-	left: 600px;
+	left: 200px;
 }
