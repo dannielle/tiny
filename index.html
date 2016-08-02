@@ -19,6 +19,8 @@
     <button id="buttonToGroundAndSky">Change Background to Ground and Sky</button>
     <button id="buttonToToggleModel">Toggle House Visibility</button>
 
+    <p id="instructions">Use the mouse to look around. Use arrow keys to walk around. Press Escape when finished.</p>
+
     <a-scene>
       <a-assets>
         <a-asset-item id="model-green" src="./models/green.dae"></a-asset-item>
@@ -30,8 +32,7 @@
         <img id="image-d" src="./images/d.jpg"></img>
       </a-assets>
 
-      <a-collada-model id="model-house" src="#model-green" scale="25 25 25" position="-285 13 -200"></a-collada-model>
-
+      <a-collada-model id="model-house" src="#model-green" scale="25 25 25" position="195 13 240" rotation="0 150 0"></a-collada-model>
       <!-- Front -->
       <a-light color="#f1cea1" position="2 -5 4" intensity="0.75"></a-light>
       <!-- inside -->
@@ -42,7 +43,7 @@
       <a-light type="ambient" color="#aaaaaa" intensity="0.15"></a-light>
 
        <!-- Camera -->
-      <a-entity id="camera" camera universal-controls position="0 50 0" look-controls="enabled: true" rotation="45 0 0">
+      <a-entity id="camera" camera universal-controls position="0 50 0">
         <a-cursor color="#FFFFAA"></a-cursor>
       </a-entity>
 
@@ -55,83 +56,5 @@
 
     </a-scene>
   </body>
-  <script>
-      var sceneEl = document.getElementsByTagName('a-scene')[0];
-
-      sceneEl.addEventListener('loaded', function() {
-        var sky = document.querySelector("#sky");
-        var buttonToSkyA = document.querySelector("button#buttonToSkyA");
-        var buttonToSkyB = document.querySelector("button#buttonToSkyB");
-        var buttonToSkyC = document.querySelector("button#buttonToSkyC");
-        var buttonToSkyD = document.querySelector("button#buttonToSkyD");
-        var buttonToGroundAndSky = document.querySelector("button#buttonToGroundAndSky");
-        var model = document.querySelector("#model-house");
-        var modelVisibility = true;
-        var buttonToToggleModel = document.querySelector("button#buttonToToggleModel");
-
-        buttonToSkyA.addEventListener("click", function() {
-          console.log("click")
-          sky.emit("sky-a");
-        });
-        sky.addEventListener("sky-a", function() {
-          sky.setAttribute("src", "#image-a");
-          document.querySelector("#ground").setAttribute("visible", "false");
-        });
-
-
-        buttonToSkyB.addEventListener("click", function() {
-          console.log("click")
-          sky.emit("sky-b");
-        });
-        sky.addEventListener("sky-b", function() {
-          sky.setAttribute("src", "#image-b");
-          document.querySelector("#ground").setAttribute("visible", "false");
-        });
-
-        buttonToSkyC.addEventListener("click", function() {
-          console.log("click")
-          sky.emit("sky-c");
-        });
-        sky.addEventListener("sky-c", function() {
-          sky.setAttribute("src", "#image-c");
-          document.querySelector("#ground").setAttribute("visible", "false");
-        });
-
-        buttonToSkyD.addEventListener("click", function() {
-          console.log("click")
-          sky.emit("sky-d");
-        });
-        sky.addEventListener("sky-d", function() {
-          sky.setAttribute("src", "#image-d");
-          document.querySelector("#ground").setAttribute("visible", "false");
-        });
-
-
-        buttonToGroundAndSky.addEventListener("click", function() {
-          sky.emit("ground-and-sky");
-        });
-        sky.addEventListener("ground-and-sky", function() {
-          sky.setAttribute("src", "#image-sky");
-          document.querySelector("#ground").setAttribute("visible", "true");
-        });
-
-        buttonToToggleModel.addEventListener("click", function() {
-          model.emit("toggle-model");
-        });
-        model.addEventListener("toggle-model", function() {
-          if (modelVisibility) {
-            model.setAttribute("visible", "false");
-            modelVisibility = false;
-          }
-          else {
-            model.setAttribute("visible", "true");
-            modelVisibility = true;
-          }
-        });
-
-
-
-      });
-
-  </script>
+  <script src="./js/changeEnvironment.js"></script>
 </html>
